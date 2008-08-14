@@ -18,5 +18,5 @@ no_index:
     - t
 resources:
   license: http://dev.perl.org/licenses/
-  repository: svn://svn.versed.se/public/Perl/modules/JavaScript
+  repository: http://github.com/robertkrimen/string-comments-extract/tree/master
 version: 0.01

@@ -1,4 +1,4 @@
-package String::Comments::Extract::C;
+package String::Comments::Extract::Java;
 
 use strict;
 use warnings;
