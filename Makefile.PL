@@ -22,9 +22,9 @@ my %WriteMakefileArgs = (
   'LICENSE' => 'perl',
   'NAME' => 'String::Comments::Extract',
   'PREREQ_PM' => {
-    'XS::Loader' => '0'
+    'XSLoader' => '0'
   },
-  'VERSION' => '0.021',
+  'VERSION' => '0.022',
   'test' => {
     'TESTS' => 't/*.t'
   }

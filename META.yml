@@ -14,5 +14,5 @@ meta-spec:
   version: 1.4
 name: String-Comments-Extract
 requires:
-  XS::Loader: 0
-version: 0.021
+  XSLoader: 0
+version: 0.022

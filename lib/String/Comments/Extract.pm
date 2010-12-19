@@ -1,6 +1,6 @@
 package String::Comments::Extract;
 BEGIN {
-  $String::Comments::Extract::VERSION = '0.021';
+  $String::Comments::Extract::VERSION = '0.022';
 }
 # ABSTRACT: Extract comments from C/C++/JavaScript/Java source
 
@@ -36,7 +36,7 @@ String::Comments::Extract - Extract comments from C/C++/JavaScript/Java source
 
 =head1 VERSION
 
-version 0.021
+version 0.022
 
 =head1 SYNOPSIS
 
