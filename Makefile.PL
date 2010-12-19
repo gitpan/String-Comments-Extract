@@ -1,32 +1,53 @@
-use inc::Module::Install;
 
-name 'String-Comments-Extract';
-all_from 'lib/String/Comments/Extract.pm';
-resources repository => 'http://github.com/robertkrimen/string-comments-extract/tree/master';
+use strict;
+use warnings;
 
-{
-    require ExtUtils::MakeMaker;
-    use strict;
-    no strict 'refs';
 
-    my $libscan = \&{"ExtUtils::MM_Any::libscan"};
-    *{"ExtUtils::MM_Any::libscan"} = sub {
-        return '' unless $libscan->(@_);
-        return '' if $_[1] =~ /\.sw[p-z]$/;
-        return $_[1];
-    };
+
+use ExtUtils::MakeMaker 6.31;
+
+
+
+my %WriteMakefileArgs = (
+  'ABSTRACT' => 'Extract comments from C/C++/JavaScript/Java source',
+  'AUTHOR' => 'Robert Krimen <robertkrimen@gmail.com>',
+  'BUILD_REQUIRES' => {
+    'Test::Most' => '0'
+  },
+  'CONFIGURE_REQUIRES' => {
+    'ExtUtils::MakeMaker' => '6.31'
+  },
+  'DISTNAME' => 'String-Comments-Extract',
+  'EXE_FILES' => [],
+  'LICENSE' => 'perl',
+  'NAME' => 'String::Comments::Extract',
+  'PREREQ_PM' => {
+    'XS::Loader' => '0'
+  },
+  'VERSION' => '0.021',
+  'test' => {
+    'TESTS' => 't/*.t'
+  }
+);
+
+
+unless ( eval { ExtUtils::MakeMaker->VERSION(6.56) } ) {
+  my $br = delete $WriteMakefileArgs{BUILD_REQUIRES};
+  my $pp = $WriteMakefileArgs{PREREQ_PM};
+  for my $mod ( keys %$br ) {
+    if ( exists $pp->{$mod} ) {
+      $pp->{$mod} = $br->{$mod} if $br->{$mod} > $pp->{$mod};
+    }
+    else {
+      $pp->{$mod} = $br->{$mod};
+    }
+  }
 }
 
-{
-    map { my ($pk, $vr) = split m/\s/; build_requires $pk => $vr || 0 } grep { ! /^\s*#/ } split m/\n/, <<_END_;
-Test::More
-Test::Most
-_END_
+delete $WriteMakefileArgs{CONFIGURE_REQUIRES}
+  unless eval { ExtUtils::MakeMaker->VERSION(6.52) };
 
-    map { my ($pk, $vr) = split m/\s/; requires $pk => $vr || 0 } grep { ! /^\s*#/ } split m/\n/, <<_END_;
-_END_
-}
+WriteMakefile(%WriteMakefileArgs);
 
-auto_install;
 
-WriteAll;
+

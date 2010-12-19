@@ -1,22 +1,18 @@
 ---
-abstract: 'Extract comments from C, C++, and JavaScript'
+abstract: 'Extract comments from C/C++/JavaScript/Java source'
 author:
-  - 'Robert Krimen, C<< <rkrimen at cpan.org> >>'
+  - 'Robert Krimen <robertkrimen@gmail.com>'
 build_requires:
-  Test::More: 0
   Test::Most: 0
-distribution_type: module
-generated_by: 'Module::Install version 0.760'
+configure_requires:
+  ExtUtils::MakeMaker: 6.31
+dynamic_config: 0
+generated_by: 'Dist::Zilla version 4.102345, CPAN::Meta::Converter version 2.102400'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
   version: 1.4
 name: String-Comments-Extract
-no_index:
-  directory:
-    - inc
-    - t
-resources:
-  license: http://dev.perl.org/licenses/
-  repository: http://github.com/robertkrimen/string-comments-extract/tree/master
-version: 0.01
+requires:
+  XS::Loader: 0
+version: 0.021
