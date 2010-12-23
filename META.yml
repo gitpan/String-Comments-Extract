@@ -3,6 +3,7 @@ abstract: 'Extract comments from C/C++/JavaScript/Java source'
 author:
   - 'Robert Krimen <robertkrimen@gmail.com>'
 build_requires:
+  Path::Class: 0
   Test::Most: 0
 configure_requires:
   ExtUtils::MakeMaker: 6.31
@@ -15,4 +16,4 @@ meta-spec:
 name: String-Comments-Extract
 requires:
   XSLoader: 0
-version: 0.022
+version: 0.023

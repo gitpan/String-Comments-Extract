@@ -12,6 +12,7 @@ my %WriteMakefileArgs = (
   'ABSTRACT' => 'Extract comments from C/C++/JavaScript/Java source',
   'AUTHOR' => 'Robert Krimen <robertkrimen@gmail.com>',
   'BUILD_REQUIRES' => {
+    'Path::Class' => '0',
     'Test::Most' => '0'
   },
   'CONFIGURE_REQUIRES' => {
@@ -24,7 +25,7 @@ my %WriteMakefileArgs = (
   'PREREQ_PM' => {
     'XSLoader' => '0'
   },
-  'VERSION' => '0.022',
+  'VERSION' => '0.023',
   'test' => {
     'TESTS' => 't/*.t'
   }
